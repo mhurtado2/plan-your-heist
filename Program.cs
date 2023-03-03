@@ -30,7 +30,7 @@ namespace planYourHeist
 
             //phase 3 
             Bank wellsFargo = new();
-            wellsFargo.BanksDifficulty= numAnswerFour;
+            wellsFargo.BanksDifficulty = numAnswerFour;
             // Console.WriteLine(wellsFargo.BanksDifficulty);
 
 
@@ -65,7 +65,7 @@ namespace planYourHeist
 
         
     //59 - 80 wrap in function called run hesit, pass it bank difficulty and skill level 
-    void RunHeist()
+    void RunHeist(int skillLevelSum, Bank wellsFargo)
     {
         //phase 4
         // Create a random number between -10 and 10 for the heist's luck value. 
@@ -81,7 +81,7 @@ namespace planYourHeist
         // The team's combined skill level
         // The bank's difficulty level
         
-        if(skillLevelSum > wellsFargo.BanksDifficulty)
+        if(skillLevelSum > luckPlusBankDiff)
             {
                 Console.WriteLine("Congrats!!!, you can break in safely");
             }
@@ -100,7 +100,7 @@ namespace planYourHeist
         for (int i = 0; i < numAnswerthree; i++)
         {
            //should iterate through the heist answer times
-              RunHeist();
+              RunHeist(skillLevelSum, wellsFargo);
         }
 
 
@@ -125,7 +125,7 @@ namespace planYourHeist
               double numAnswerTwo;
              bool isNumberTwo = double.TryParse(CourageLevel, out numAnswerTwo);
                
-               
+
          TeamMember teamMember = new TeamMember(Username, numAnswer, numAnswerTwo);
          return teamMember;
 
