@@ -80,27 +80,41 @@ namespace planYourHeist
         // Before displaying the success or failure message, display a report that shows.
         // The team's combined skill level
         // The bank's difficulty level
+
         
+        int successfulRuns = 0; 
+        int failedRuns = 0;
+
         if(skillLevelSum > luckPlusBankDiff)
             {
                 Console.WriteLine("Congrats!!!, you can break in safely");
+                successfulRuns += 1;
+                // Console.WriteLine(successfulRuns);
             }
             else {
                 Console.WriteLine("Your screwed don't break in");
+                failedRuns += 1;
+                // Console.WriteLine(failedRuns);
             }
         }
 
+        // Console.WriteLine(successfulRuns);
         //step 2 phase 5
+
         Console.WriteLine("How Many Times Would you like to run this program");
         string answer = Console.ReadLine().Trim();
         int numAnswerthree;
         bool isNumber = int.TryParse(answer, out numAnswerthree);
 
         //move above runheist
+        int successfulRuns = 0; 
+        int failedRuns = 0;
         for (int i = 0; i < numAnswerthree; i++)
         {
            //should iterate through the heist answer times
               RunHeist(skillLevelSum, wellsFargo);
+              Console.WriteLine(successfulRuns);
+              Console.WriteLine(failedRuns);
         }
 
 
