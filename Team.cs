@@ -8,7 +8,8 @@ namespace planYourHeist {
 
         public double Courage {get; set;}
 
-        public TeamMember(string name, int level, double courage ){
+//CONSTRUCTOR
+        public TeamMember(string name, int level, double courage){
             Name = name;
             Level = level;
             Courage = courage;
