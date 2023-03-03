@@ -17,18 +17,25 @@ namespace planYourHeist
        
         void RunThis()
         {
-            //phase 2 
-            //make a blank list to add team members too
+    
+            Console.WriteLine("Plan Your Heist");
+            Console.WriteLine("----------------");
+
+            //phase 6
             Console.WriteLine("Enter the difficulty level of the bank");
             string selectDifficulty = Console.ReadLine().Trim();
             int numAnswerFour;
-            bool isNumber = int.TryParse(answer, out numAnswerFour);
+            bool isNumberTwo = int.TryParse(selectDifficulty, out numAnswerFour);
+            // Console.WriteLine(selectDifficulty);
 
             //phase 3 
             Bank wellsFargo = new();
-            wellsFargo.BanksDifficulty= 100;
+            wellsFargo.BanksDifficulty= numAnswerFour;
+            // Console.WriteLine(wellsFargo.BanksDifficulty);
 
 
+            //phase 2 
+            //make a blank list to add team members too
             List<TeamMember> Roster = new List<TeamMember> {};
             //add team members to list while making team is true
             bool makingTeam = true;
@@ -101,10 +108,7 @@ namespace planYourHeist
 
             TeamMember CreateNewTeamMember()
             {
-            //console write plan your hesit
-            Console.WriteLine("Plan Your Heist");
-            Console.WriteLine("----------------");
-            Console.WriteLine("What is your name: ");
+            Console.WriteLine("Team Member's name: ");
              string Username= Console.ReadLine().Trim();
              if(Username == "")
              {
@@ -112,18 +116,19 @@ namespace planYourHeist
              }
              //write a conditional if username is blank 
              //if username is eual blank string, return null
-            Console.WriteLine("What is your skill level: ");
+            Console.WriteLine("Team Member's skill level: ");
              string SkillLevel = Console.ReadLine().Trim();
              int numAnswer;
              bool isNumber = int.TryParse(SkillLevel, out numAnswer);
-              Console.WriteLine("What is your courage level: ");
+              Console.WriteLine("Team Member's courage level: ");
              string CourageLevel = Console.ReadLine().Trim();
               double numAnswerTwo;
              bool isNumberTwo = double.TryParse(CourageLevel, out numAnswerTwo);
                
-            
+               
          TeamMember teamMember = new TeamMember(Username, numAnswer, numAnswerTwo);
          return teamMember;
+
         }
       }
     }
