@@ -63,13 +63,17 @@ namespace planYourHeist
             }
              Console.WriteLine($"Your Team's Skill level is: {skillLevelSum}");
 
+    int successfulRuns = 0; 
+    int failedRuns = 0;
+
         
     //59 - 80 wrap in function called run hesit, pass it bank difficulty and skill level 
-    void RunHeist(int skillLevelSum, Bank wellsFargo)
+    //return bool to see if heist was succesfull
+    bool RunHeist(int skillLevelSum, Bank wellsFargo)
     {
         //phase 4
         // Create a random number between -10 and 10 for the heist's luck value. 
-        // Compare the number with the bank's difficulty level. 
+        // Compare the number with the bank's difficulty level.
         // If the team's skill level is greater than or equal to the bank's difficulty level, 
         // Display a success message, otherwise display a failure message.
 
@@ -82,20 +86,19 @@ namespace planYourHeist
         // The bank's difficulty level
 
         
-        int successfulRuns = 0; 
-        int failedRuns = 0;
+        // int successfulRuns = 0; 
+        // int failedRuns = 0;
 
         if(skillLevelSum > luckPlusBankDiff)
             {
                 Console.WriteLine("Congrats!!!, you can break in safely");
-                successfulRuns += 1;
-                // Console.WriteLine(successfulRuns);
+                return true;
             }
             else {
                 Console.WriteLine("Your screwed don't break in");
-                failedRuns += 1;
-                // Console.WriteLine(failedRuns);
+                return false;
             }
+
         }
 
         // Console.WriteLine(successfulRuns);
@@ -107,15 +110,22 @@ namespace planYourHeist
         bool isNumber = int.TryParse(answer, out numAnswerthree);
 
         //move above runheist
-        int successfulRuns = 0; 
-        int failedRuns = 0;
         for (int i = 0; i < numAnswerthree; i++)
         {
            //should iterate through the heist answer times
-              RunHeist(skillLevelSum, wellsFargo);
-              Console.WriteLine(successfulRuns);
-              Console.WriteLine(failedRuns);
+            bool Result = RunHeist(skillLevelSum, wellsFargo);
+            if(Result){
+                successfulRuns += 1;
+            }
+            else {
+                failedRuns += 1;
+            }
+            
         }
+
+        Console.WriteLine($"Successful Runs: {successfulRuns}");
+        Console.WriteLine($"Failed Runs: {failedRuns}");
+        
 
 
         //phase 1
