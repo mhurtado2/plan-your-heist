@@ -39,6 +39,17 @@ namespace planYourHeist
             Bank wellsFargo = new();
             wellsFargo.BanksDifficulty= 100;
 
+        
+        //phase 4
+        // Create a random number between -10 and 10 for the heist's luck value.
+        int heistLuckValue = new Random().Next(-10, 10);
+        int luckPlusBankDiff = heistLuckValue + wellsFargo.BanksDifficulty;
+        Console.WriteLine(luckPlusBankDiff);
+        // Before displaying the success or failure message, display a report that shows.
+        // The team's combined skill level
+        // The bank's difficulty level
+        
+        //phase 3 
         // Compare the number with the bank's difficulty level. 
         // If the team's skill level is greater than or equal to the bank's difficulty level, 
         // Display a success message, otherwise display a failure message.
@@ -50,6 +61,7 @@ namespace planYourHeist
         else {
             Console.WriteLine("Your screwed don't break in");
         }
+
 
         //phase 1
 
